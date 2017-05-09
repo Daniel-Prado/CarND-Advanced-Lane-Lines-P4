@@ -20,8 +20,9 @@ The goals / steps of this project are the following:
 [image3]: ./output_images/binary1.jpg "Binary Thresholded image"
 [image4.1]: ./output_images/straight_binary2.jpg "Binary Straight lines"
 [image4.2]: ./output_images/straight_warped2.jpg "Warped Straight lines"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
+[image5.1]: ./output_images/sidewin6.jpg "Detected centroids showing the sliding windows (green)"
+[image5.2]: ./examples/color_fit_lines.jpg "Fit Visual"
+[image6]: ./output_images/result6.jpg "Output result"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -96,30 +97,29 @@ By this method the image is divided into 9 rows of the same height (80 pixels). 
 This one-dimensional signal is convolved with a square window of a predetermined width, and as a result, we get 1 peak in the left-hand side of the image and another peak in the right-hand side.
 Actually, the position of the peaks in the lower row of the image is determined using the lower quarter of the image, and not only the 80-pix row. This is because we need to make sure that the position of the lower row in the frame is valid, as the following rows are searched only within a margin of the previous one.
 
-As a result, this process gives a list of 9 centroids for every side of the image, left and right.
+As a result, this process gives a list of 9 centroids for every side of the image, left and right. Below we can see a sample of this intermediate result:
+
+![alt text][image5.1]
 
 The next sub-step is to fit one 2nd degree polynom function based on the previous calculated centroids, for both lane lines.
 This is implemented in a class named `Line` in a separate python file `file.py`, that is then imported in the IPython notebook (see code cell under Section 5).
+
+![alt text][image5.2]
 
 Next, with the obtained polynom coeficients, we can draw the lines over a blank bird-eye frame, the left line in red, and right line in blue, and fill-in the lane in-between in green color.
 
 Finally, we unwarp this image to the original perspective, using the `perspective_transform_unwarp` function. The resulting image is added to the original (lens-undistorted) image.
 
-Below you can see the different steps of the process.
-
-
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
-
-![alt text][image5]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+The calculation of the radius of curvature is done in the method `get_line_curvature` of my Line class in file `line.py`. 
+I apply the formula we have seen in the lessons to obtain the curve of a polynomic function at a given point based on its coeficients. I apply the factor of 40m/720 pixels to get the result in meters and not in pixels.
+Actually this method calculates the curvature of one of the lines (left or right), and then I average both results in my notebook to get the radius of the curve.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
 The complete pipeline explained before in the section 4 gives as a result a picture like this:
-
 
 ![alt text][image6]
 
@@ -132,7 +132,7 @@ The complete pipeline explained before in the section 4 gives as a result a pict
 **Smoothing**
 In order to minimize the effect of 
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./output_video.mp4)
 
 ---
 
