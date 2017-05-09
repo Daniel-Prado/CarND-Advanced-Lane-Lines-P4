@@ -129,9 +129,6 @@ The complete pipeline explained before in the section 4 gives as a result a pict
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-**Smoothing**
-In order to minimize the effect of 
-
 Here's a [link to my video result](./output_video.mp4)
 
 ---
