@@ -18,7 +18,8 @@ The goals / steps of this project are the following:
 [image1]: ./examples/undistort_output.png "Undistorted"
 [image2]: ./test_images/test1.jpg "Road Transformed"
 [image3]: ./output_images/binary1.jpg "Binary Thresholded image"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
+[image4.1]: ./output_images/straight_binary2.jpg "Binary Straight lines"
+[image4.2]: ./output_images/straight_warped2.jpg "Warped Straight lines"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
@@ -73,14 +74,18 @@ The code for my perspective transform includes a function called `perspective_tr
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
-| 592, 450      | 320, 0        | 
-| 692, 450      | 960, 0        |
+| 593, 450      | 320, 0        | 
+| 691, 450      | 960, 0        |
 | 260, 684      | 320, 720      |
 | 1070, 684     | 960, 720      |
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![alt text][image4]
+Binary image, before warping:
+![alt text][image4.1]
+
+After Warping:
+![alt text][image4.2]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
