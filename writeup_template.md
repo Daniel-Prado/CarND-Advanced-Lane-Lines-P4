@@ -147,8 +147,10 @@ Special consideration must be given to the smoothing applied in the video pipeli
 I have used smoothing in two different parts of the process:
 * Sliding window centroids detection: the position of each centroid is averaged with the 15 latests centroids at that y-position, in the previous 15 frames.
 * Smoothing of the 2nd order Polynom coeficients. The coeficients of the polynom functions are also smoothed across the latest 10 frames.
+* Smoothing of the curvature radius.. The calculation of the radius is obviously not very precise, so to avoid the jitter, I average the radius over the last 100 frames.
 
-This degree of smoothing is acceptable, taking into account that the video is 30 Frames per second, the smoothing is only 1/2 and 1/3 of a second.
+This degree of smoothing is acceptable, taking into account that the video is 30 Frames per second, the smoothing is only 1/2 and 1/3 of a second. For the radius the smoothing is maybe a bit too much, but radius in the kind of highway in the video don't change quickly anyway.
+These tuning parameters would probably not be acceptable for other more challenging videos with quick turns.
 
 Another aspect I would like to highlight is the importance of a fine-tuning in the binary thresholds. Although my thresholded images look a bit noisy, I found out that this provided a better result that if I lowered the thresholds to obtain a cleaner binary image, because in that case I tended to loose detail of the lines in the upper part of the scene.
 
