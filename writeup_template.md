@@ -142,8 +142,8 @@ Here I'll talk about the approach I took, what techniques I used, what worked an
 The approach used has been described in enough detail in previous section of this report.
 Special consideration must be given to the smoothing applied in the video pipeline (this has no effect in the static image pipeline).
 I have used smoothing in two different parts of the process:
-* Sliding window centroids detection: the position of each centroid is averaged with the 15 latests centroids at that y-position, in the previous 15 frames.
-* Smoothing of the 2nd order Polynom coeficients. The coeficients of the polynom functions are also smoothed across the latest 10 frames.
+* Sliding window centroids detection: the position of each centroid is averaged with the 15 latests centroids at that y-position, in the previous 10 frames.
+* Smoothing of the 2nd order Polynom coeficients. The coeficients of the polynom functions are also smoothed across the latest 5 frames.
 * Smoothing of the curvature radius.. The calculation of the radius is obviously not very precise, so to avoid the jitter, I average the radius over the last 100 frames.
 
 This degree of smoothing is acceptable, taking into account that the video is 30 Frames per second, the smoothing is only 1/2 and 1/3 of a second. For the radius the smoothing is maybe a bit too much, but radius in the kind of highway in the video don't change quickly anyway.
