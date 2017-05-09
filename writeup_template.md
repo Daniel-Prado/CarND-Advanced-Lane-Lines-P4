@@ -129,7 +129,11 @@ The complete pipeline explained before in the section 4 gives as a result a pict
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./output_video.mp4)
+Here's a [link to my video result](./output_video.mp4) in  my repository.
+
+Here's the same video in Youtube:
+
+[![Project 4 Output](https://img.youtube.com/vi/nzIG67zu1_0/0.jpg)](https://youtu.be/nzIG67zu1_0)
 
 ---
 
